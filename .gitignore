@@ -1,0 +1,89 @@
+*.log
+
+*.py[codt]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+#virtualenv
+env
+Pipfile
+Pipfile.lock
+.env
+
+
+# intellij
+*.ipr
+*.iml
+*.iws
+*.pem
+
+# Mysql
+*.sql
+*.sql.gz
+
+#Sqlite
+*.db
+db/
+
+#Test Files
+test_*.txt
+
+
+# static output directory
+/.DS_Store
+.DS_Store
+.idea/
+
+#Selenium files
+# chromedriver
+chromedriver_mac64/
+
+
+#Remove env
+.env
+/.env
+
+# bower packages
+cnext_backend/assets-src/vendor/
+.sass-cache/
+todo.txt
+*.rdb
+*.vscode
+*.idea
+/newrelic.ini
+*.ini
+*.package-lock.json
+static
+
+
+/venv/
+
+# bash scripts
+*.sh
