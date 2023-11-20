@@ -12,7 +12,6 @@ async def api_key_auth(
     api_key_header: str = Security(X_API_KEY),
 ):
     if api_key_header == os.getenv('X_API_KEY'):
-        print('api_key_header',api_key_header)
         return api_key_header
     else:
         raise HTTPException(status_code=403)
