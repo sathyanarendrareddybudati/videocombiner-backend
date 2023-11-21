@@ -1,10 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from settings.base import MASTER_DB_HOST, MASTER_DB_NAME, MASTER_DB_PASSWORD, MASTER_DB_USER
+from settings.base import settings
+from typing import Any
 
 
-db_url = f"mysql://{MASTER_DB_USER}:{MASTER_DB_PASSWORD}@{MASTER_DB_HOST}/{MASTER_DB_NAME}"
+db_url = settings.DB_URL
 
 engine = create_engine(
     db_url
