@@ -87,3 +87,7 @@ static
 
 # bash scripts
 *.sh
+
+*.zip
+
+dependencies
