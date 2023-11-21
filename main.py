@@ -7,8 +7,10 @@ from settings.base import settings
 from starlette.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 
+from mangum import Mangum
 
 Base.metadata.create_all(engine)
+
 
 X_API_KEY = APIKeyHeader(name='x-api-key')
 
@@ -20,10 +22,12 @@ async def api_key_auth(
     else:
         raise HTTPException(status_code=403)
 
-app = FastAPI(dependencies=[Depends(api_key_auth)], title='zfw_fastapi', openapi_url=f"/openapi.json",
+
+app = FastAPI(title='zfw_fastapi', openapi_url=f"/openapi.json",
               docs_url = None if not settings.DEBUG else "/docs",
               docs_urls = None if not settings.DEBUG else "/redocs")
-
+# app = FastAPI(dependencies=[Depends(api_key_auth)],title='zfw_fastapi', openapi_url=f"/openapi.json")
+handler =Mangum(app)
 app.include_router(controllers.router)
 
 app.add_middleware(GZipMiddleware, minimum_size=500)
@@ -40,6 +44,8 @@ if settings.CORS_ORIGINS:
 
 
 @app.get("/")
-def Home():
+async def Home():
     response = "welcome to zfw_fastapi"
-    return response
+    return {
+        "message":response
+    }
