@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from datetime import timedelta
 from pydantic_settings import BaseSettings
 from typing import ClassVar
+from celery_app import Celery
 
 
 load_dotenv('.env')
